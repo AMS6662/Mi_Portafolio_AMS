@@ -1,0 +1,691 @@
+@charset "utf-8";
+/* CSS Document */
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Inter', sans-serif, "Istok Web", sans-serif;
+}
+/*header top section*/
+header
+{
+	background: #DBFE87;
+	color: black;
+	min-height: auto;
+	display: flex;
+	flex-direction: column;
+	width: 100%;  /* Ensure full width */
+
+}
+
+.header-top
+{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	width: 100%;
+}
+
+.logo-title-hamburguer 
+{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex: 1;
+}
+
+.logo-title-hamburguer h1
+{
+	font-size: 3em;
+	font-family: 'Istok Web', sans-serif;
+	white-space: nowrap;
+}
+
+.logo-title-hamburguer img
+{
+	padding: 20px;
+	max-height: 150px;
+	width: auto;
+}
+
+/*hamburguer stylization*/
+#check
+{
+	display: none;
+}
+
+#btn-hamburguesa
+{
+	display: block;
+	text-align: center;
+	font-size: 2em;
+	cursor: pointer;
+	color: black;
+	padding: 5px 15px;
+	width: auto;
+}
+
+/*nav stylization - hidden by default*/
+nav
+{
+	display: none;
+	position:relative;
+	width: 100%;
+	height: 100px;
+	padding: 40px 80px;
+	border-radius: 8px;
+	justify-content: space-around;  /* Evenly space items */
+	align-items: center;
+	flex-wrap: nowrap;  /* Prevent wrapping */
+	gap: 10px;
+	background: #DBFE87;
+}
+
+/*show nav when checkbox=true*/
+#check:checked ~ nav
+{
+	display: flex !important;
+	width:100%;
+	border: 5px !important;
+}
+#check:checked ~ .debug-test {
+    display: block !important;
+}
+nav img
+{
+	margin: 0;
+	max-width:100%; 
+	height:auto;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+nav a
+{
+	position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 30px;
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    flex: 1;
+    z-index: 1;
+    transition: 0.3s; 
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#226F54;
+    border-radius: 8px;
+    opacity: 0;
+	transform: scale(0.9);  
+    transition: 0.3s;
+    z-index: -1;
+}
+
+nav a:hover::after 
+{
+    opacity: 1;
+	transform: scale(1);
+}
+
+nav a:hover 
+{
+    color: #fefefe;
+}
+
+nav a:hover img
+{
+	filter: brightness(0) invert(1);
+}
+
+/*hero section*/
+.hero
+{
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	background: linear-gradient(180deg, #FFFFFF 0%, #E8E8E8 100%);
+	overflow: hidden;
+}
+
+/*ASCII Art bg*/
+.ascii-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.ascii-art {
+    font-family: monospace;
+    font-size: 24px;
+    line-height: 1.2;
+    color: #FFB140;
+    white-space: pre;
+    text-align:left;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    transform: scale(1);  /* Adjust if needed */
+}
+
+/*.ascii-background::before {
+    content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+    content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+    content: " ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣭⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣹⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣤⠤⢤⣀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⠴⠒⢋⣉⣀⣠⣄⣀⣈⡇\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣾⣯⠴⠚⠉⠉⠀⠀⠀⠀⣤⠏⣿\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡿⡇⠁⠀⠀⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⡿⠿⢛⠁⠁⣸⠀⠀⠀⠀⠀⣤⣾⠵⠚⠁\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⢦⡀⠀⣠⠀⡇⢧⠀⠀⢀⣠⡾⡇⠀⠀⠀⠀⠀⣠⣴⠿⠋⠁⠀⠀⠀⠀⠘⣿⠀⣀⡠⠞⠛⠁⠂⠁⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡈⣻⡦⣞⡿⣷⠸⣄⣡⢾⡿⠁⠀⠀⠀⣀⣴⠟⠋⠁⠀⠀⠀⠀⠐⠠⡤⣾⣙⣶⡶⠃⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣂⡷⠰⣔⣾⣖⣾⡷⢿⣐⣀⣀⣤⢾⣋⠁⠀⠀⠀⣀⢀⣀⣀⣀⣀⠀⢀⢿⠑⠃⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⡦⠴⠴⠤⠦⠤⠤⠤⠤⠤⠴⠶⢾⣽⣙⠒⢺⣿⣿⣿⣿⢾⠶⣧⡼⢏⠑⠚⠋⠉⠉⡉⡉⠉⠉⠹⠈⠁⠉⠀⠨⢾⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠂⠀⠀⠀⠂⠐⠀⠀⠀⠈⣇⡿⢯⢻⣟⣇⣷⣞⡛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣆⠀⠀⠀⠀⢠⡷⡛⣛⣼⣿⠟⠙⣧⠅⡄⠀⠀⠀⠀⠀⠀⠰⡆⠀⠀⠀⠀⢠⣾⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⢶⠏⠉⠀⠀⠀⠀⠀⠿⢠⣴⡟⡗⡾⡒⠖⠉⠏⠁⠀⠀⠀⠀⣀⢀⣠⣧⣀⣀⠀⠀⠀⠚⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⢴⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⣠⣷⢿⠋⠁⣿⡏⠅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⣿⢭⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⢏⡵⠛⠀⠀⠀⠀⠀⠀⠀⣀⣴⠞⠛⠀⠀⠀⠀⢿⠀⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠂⢿⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣼⠛⣲⡏⠁⠀⠀⠀⠀⠀⢀⣠⡾⠋⠉⠀⠀⠀⠀⠀⠀⢾⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⠟⠀⢰⡯⠄⠀⠀⠀⠀⣠⢴⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⣹⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⠁⠁⠀⠘⠧⠤⢤⣤⠶⠏⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢾⡃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣇⠂⢀⣀⣀⠤⠞⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠾⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢼⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+	content: "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\A";
+    position: absolute;
+    white-space: pre;
+}*/
+
+	/*centering the astronaut*/
+.hero-container
+{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+}
+
+/*astronaut container*/
+.astronaut-container
+{
+	position: relative;
+	width: 532px;
+	height: 533px;
+}
+
+.astronaut
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: auto;
+	z-index: 3;
+}
+
+/* Button Groups - Position around astronaut */
+.button-group 
+{
+    position: absolute;
+    z-index: 4;
+}
+/* Make buttons clickable links */
+.main-btn, .sub-btn, .text-box-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Position each button group */
+.button-group-left-hand
+{
+    top: 30%;  /* Adjust these values based on your astronaut image */
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.button-group-head
+{
+    top: 30%;
+    right: -20%;
+    transform: translate(50%, -50%);
+}
+
+.button-group-right-hand
+{
+    bottom: 30%;
+	top: 70%;
+    right: -15%;
+    transform: translate(50%, 50%)
+}
+
+/* Main Button Styling */
+.main-btn 
+{
+    width: 244px;
+    height: 65px;
+    border-radius: 35px;
+    background: #B7245C;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+	font-family: "Istok-Web", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 5;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.main-btn:hover {
+    transform: scale(1.1);
+    background: #FFC1DE;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    color: black;
+}
+
+
+/* Sub-buttons container - hidden by default */
+.sub-buttons {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 120px;
+    z-index: 6;
+}
+
+/* Text Box Styling - For Left Foot */
+.text-box-left-foot {
+    position: absolute;
+    bottom: 16vh;;
+    left: 5vw;;
+    width: 350px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 2px solid #226F54;
+    z-index: 4;
+    backdrop-filter: blur(3px);
+}
+
+.text-box-left-foot h3 {
+    color: #226F54;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.text-box-left-foot p {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.text-box-link {
+    color: #226F54;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+/* Position sub-buttons based on which button group */
+.button-group-left-hand .sub-buttons {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin-left: -170px;
+}
+
+.button-group-right-hand .sub-buttons {
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    margin-right: 20px;
+}
+
+.button-group-left-foot .sub-buttons {
+    bottom: 100%;
+    left: -50%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+}
+
+.button-group-right-foot .sub-buttons {
+    bottom: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    margin-bottom: 20px;
+}
+
+/* Show sub-buttons when hovering over the button group */
+.button-group:hover .sub-buttons {
+    display: flex;
+}
+
+/* Sub-button styling */
+.sub-buttons button {
+    padding: 10px 20px;
+    background: #FFB140;
+    color: black;
+    border-radius: 35px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/*.sub-buttons button:hover {
+    background: #226F54;
+    color: white;
+    transform: translateX(5px);
+}*/
+
+/* Animation for sub-buttons */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.sub-buttons .sub-btn {
+    animation: slideIn 0.3s ease forwards;
+}
+
+/* ===== CAROUSEL STYLES ===== */
+.carousel-container {
+    position: relative;
+    width: 900px;
+    height: 506.25px;
+    float: left;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;  /* This is correct - keeps hidden slides from blocking */
+}
+
+.carousel-item.active {
+    opacity: 1;
+    pointer-events: auto;  /* This allows interaction with active slide */
+}
+
+/* Additional fix for iframe inside active slide */
+.carousel-item.active .video-wrapper,
+.carousel-item.active .video-wrapper iframe {
+    pointer-events: auto;
+}
+
+.carousel-image, .carousel-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/*.carousel-video iframe, .carousel-item iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}*/
+
+/* Navigation Arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    z-index: 20;
+    pointer-events: auto;
+}
+
+.carousel-arrow.prev { left: 25px; }
+.carousel-arrow.next { right: 25px; }
+
+.carousel-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Dot Indicators */
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+    pointer-events: auto;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active-dot {
+    background: white;
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Video Wrapper and Play Button */
+/* Make video wrapper position properly */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Style the iframe to fill the wrapper */
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* Game Cards Styling */
+.game-card {
+    background: #f8f8f8;
+    border-left: 4px solid #226F54;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.game-card h4 {
+    color: #226F54;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.game-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.dev-details {
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.dev-badge {
+    background: #DBFE87;
+    color: #226F54;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.feature-list {
+    margin: 10px 0 15px 20px;
+    font-size: 13px;
+    color: #444;
+}
+
+.feature-list li {
+    margin-bottom: 4px;
+}
+
+/* Download Button Small */
+.download-btn-small {
+    display: inline-block;
+    background: #226F54;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13px;
+    margin-right: 8px;
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.download-btn-small:hover {
+    background: #2a8a68;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .astronaut-container {
+        width: 300px;
+        height: 400px;
+    }
+    
+    .main-btn {
+        width: 80px;
+        height: 80px;
+        font-size: 12px;
+    }
+    
+    .sub-buttons button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    
+    .button-group-left-hand { left: -20px; }
+    .button-group-right-hand { right: -20px; }
+    
+    .carousel-container {
+        width: 100%;
+        float: none;
+        margin-bottom: 20px;
+    }
+    
+    .carousel-arrow {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+    
+    .text-box-left-foot {
+        width: 180px;
+        padding: 15px;
+        bottom: 15px;
+        left: 15px;
+    }
+    
+    .text-box-left-foot h3 {
+        font-size: 16px;
+    }
+    
+    .text-box-left-foot p {
+        font-size: 12px;
+    }
+}
+
+/*footer styles*/
+footer {
+    text-align: center;
+    background-color: #FFC1DE;
+    margin-top: 40px;
+    padding: 20px;
+    clear: both;
+}
+
+footer img {
+    margin: 0px 40px;
+    max-width: 100%;
+    height: auto;
+}

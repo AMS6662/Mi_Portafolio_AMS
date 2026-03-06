@@ -1,0 +1,133 @@
+<!doctype html> <!--tipo de documento-->
+<html> <!--indica el inicio del documento-->
+	
+<head> <!--sitio real-->
+<meta charset="utf-8"> 
+	<title> Alexander Morales Portfolio </title> <!--es lo que aparece en la pestaña del navegador-->
+	<link rel= "stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head> <!-- fin de cabeza-->
+	
+	<body>
+		<header>
+    <input type="checkbox" id="check">  <!-- Moved here - now sibling to nav -->
+    
+    <div class="header-top">
+        <div class="logo-title-hamburguer">
+            <img src="imagenes/logo.svg" alt="Logo de la marca" style="padding: 20px;">
+            <h1>ALEXANDER MORALES</h1>
+        </div>
+        <label for="check" id="btn-hamburguesa">☰</label> <!--shows after/next to title and logo-->
+    </div>
+    
+    <nav>
+        <a href="index.html" style="padding: 20px"><img src="imagenes/aboutMeBtn.svg" alt="icono estrella"/>About Me</a>
+        <a href="#" style="padding: 20px"><img src="imagenes/videogamesBtn.svg" alt="icono videojuegos"/>Videogame Design</a>
+        <a href="seccion2_diseñoGrafico.html" style="padding: 20px"><img src="imagenes/graphicDesignBtn.svg" alt="icono videojuegos"/>Graphic Design</a>
+        <a href="seccion3_arte3D.html" style="padding: 20px"><img src="imagenes/3dDesignBtn.svg" alt="icono videojuegos"/>3D Art</a>
+        <span></span>
+    </nav>
+</header>
+
+		<div id="ContenidoDePagina">
+    <!-- Carousel with 1 video + 4 images -->
+    <div class="carousel-container" style="float:left; padding: 20px">
+        <!-- ADD THIS MISSING DIV -->
+        <div class="carousel-slides">
+            <!-- Slide 1: Edles Blut VIDEO with play button (REMOVE the extra 'active' class) -->
+           <div class="carousel-item active">
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube-nocookie.com/embed/U32CKUdyWEI?modestbranding=1&rel=0&showinfo=0&autoplay=0&mute=1&controls=1" 
+                title="Edles Blut Gameplay" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+        </iframe>
+    </div>
+</div>
+            
+            
+            <!-- Slide 2: Image 1 -->
+            <div class="carousel-item">
+                <img src="imagenes/edulesBlut_1.jpg" alt="Game Screenshot 1" class="carousel-image">
+            </div>
+            
+            <!-- Slide 3: Image 2 -->
+            <div class="carousel-item">
+                <img src="imagenes/edlesBlut_5.jpg" alt="Game Screenshot 2" class="carousel-image">
+            </div>
+            
+            <!-- Slide 4: Image 3 -->
+            <div class="carousel-item">
+                <img src="imagenes/edlesBlut_6.jpg" alt="Game Screenshot 3" class="carousel-image">
+            </div>
+            
+            <!-- Slide 5: Image 4 -->
+            <div class="carousel-item">
+                <img src="imagenes/edlesBlut_3.jpg" alt="Game Screenshot 4" class="carousel-image">
+            </div>
+			<!-- Slide 6: Image 5 -->
+            <div class="carousel-item">
+                <img src="imagenes/edlesBlut_4.jpg" alt="Game Screenshot 4" class="carousel-image">
+            </div>
+        </div> <!-- Close carousel-slides -->
+        
+        <!-- Navigation arrows -->
+        <button class="carousel-arrow prev">❮</button>
+        <button class="carousel-arrow next">❯</button>
+        
+        <!-- Dot indicators -->
+        <div class="carousel-dots">
+            <span class="dot active-dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+		
+    <!-- Text Section with Download Buttons and Edles Blut Info -->
+    <div id="TextoDePagina">
+        <br>
+		<br>
+		<h2>About</h2>
+        <p>Here you can watch the gameplay and download the demo for one of the games I've created. This game was developed in Unity, using C# (•̀ᴗ•́)و ̑̑ <br>This game was a team effort. I did the coding and development, while the visual assets were made by team mates(⌐⊙_⊙). I also participated in drawing the storyboard and writting the script.<br>
+		<br>
+		Some of my skills in Videogame Design include: object-oriente programing, UI functionality, asset creation (ilustration and 3D models), level design, storyboarding and script-writting.</p>
+        
+        <br>
+		<h3>Demo</h3>
+        
+        <!-- Edles Blut - Extra Info + Download -->
+        <div class="game-card">
+            <h4>🎮 Edles Blut</h4>
+            <p class="game-description">A psychological horror Dating Simulator, in which the player must win the affections of the characters or perish.</p>
+            <div class="dev-details">
+                <span class="dev-badge">C#</span>
+                <span class="dev-badge">Unity</span>
+                <span class="dev-badge">2D</span>
+                <span class="dev-badge">Event-based coding</span>
+				<span class="dev-badge">UI and player interaction</span>	
+				<span class="dev-badge">Music and Sound Effects</span>	
+
+            </div>
+            <ul class="feature-list">
+                <li>Multiple endings depending on decisions</li>
+                <li>Optimized for performance</li>
+            </ul>
+            <a href="demos/edlesblut_demo.zip" class="download-btn-small" download>⬇️ Descargar Demo (Windows)</a>
+        </div>
+    </div>
+
+	
+<footer style="text-align: center; background-color: #FFC1DE; margin-top: 40px; padding: 40px; clear: both;"> <!--para separar un elemento del otro se usa el margin, paradarse espacio a los elementos dentro del diseño se usa el adding-->
+		<a href="https://cara.app/bluesldedreams/all" alt="link to Cara" target="_blank">
+		<img src="imagenes/caraIcon.svg" alt="icono de la red social cara"/></a>
+		<a href="https://drive.google.com/drive/folders/1mTmMG7LKbACqHxB2ZnbEwLYTZ7N7OP_Z?usp=sharing" alt="link to my resume" target="_blank"><img src="imagenes/resumeIcon.svg" alt="icon for resume"/></a>
+</footer>
+    <script src="carousel.js"></script>	
+</div>
+</body>
+</html> <!--indica el final del documento con /-->
